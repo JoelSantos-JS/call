@@ -30,3 +30,4 @@ export const Preview = styled('div', {
         display :'none'
     }
 })
+
