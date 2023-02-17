@@ -2,11 +2,12 @@ import {styled} from '@ignite-ui/react'
 
 
 export  const Container = styled('div' ,  {
- maxWidth: 'cal(100vw - (100vw -1160px) / 2)',
+ maxWidth: 'calc(100vw - (100vw -1160px) ) / 2',
  marginLeft: 'auto',
  height: '100vh',
  display: 'flex',
  alignItems: 'center',
+ justifyItems: 'center',
  gap: '$20',
  overflow: 'hidden'
 })
