@@ -7,6 +7,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 
 import  * as z from 'zod'
 import { useRouter } from 'next/router'
+import { api } from '@/lib/axios'
 
 const registerFormSchema=  z.object({
     username: z.string().min(2, {message: 'O usuario tem que ter pelo meno  2 letras.'}).regex(/^([a-z\\-]+)$/).transform((username) => username.toLowerCase()),
@@ -31,7 +32,15 @@ function Register() {
     },[router.query?.username, setValue])
 
     async function handleRegister(data: RegisterFormData) {
-        console.log(data)
+        try {
+            await api.post('/users' , {
+                name: data.name,
+                username: data.username,
+        
+            })
+        } catch (error) {
+            
+        }
     }
 
   return (
