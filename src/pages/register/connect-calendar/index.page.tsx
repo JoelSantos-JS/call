@@ -1,13 +1,15 @@
 import { Heading,Text,MultiStep, TextInput, Button } from '@ignite-ui/react'
+import { signIn } from 'next-auth/react'
 import { ArrowRight } from 'phosphor-react'
 import React, { useEffect } from 'react'
-import {useForm} from 'react-hook-form'
+
 import { Container, Form, FormError, Header } from '../styles'
-import { ConnectBox } from './styles'
+import { ConnectBox, ConnectItem } from './styles'
+async function handleConnectCalendar() {
+  await signIn('google')
+}
 
-
-function Register() {
-
+export default function ConnectCalendar() {
 
 
   return (
@@ -23,7 +25,26 @@ function Register() {
         </Header>
         <MultiStep size={4} currentStep={2}/>
 
-        <ConnectBox>
+        <ConnectBox>  
+
+          <ConnectItem>
+            <Text>Google Calendar</Text>
+
+
+            <Button variant='secondary' size='sm' onClick={() => handleConnectCalendar()}>
+              Connectar
+            </Button>
+          </ConnectItem>
+
+
+
+
+
+
+
+
+
+
         <Button type='submit' >
                 Proximo passo
 
@@ -37,4 +58,3 @@ function Register() {
   )
 }
 
-export default Register
